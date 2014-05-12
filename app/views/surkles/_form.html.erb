@@ -1,0 +1,33 @@
+<%= form_for(@surkle) do |f| %>
+  <% if @surkle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@surkle.errors.count, "error") %> prohibited this surkle from being saved:</h2>
+
+      <ul>
+      <% @surkle.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :floorplan %><br>
+    <%= f.text_area :floorplan %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :timestamps %><br>
+    <%= f.text_field :timestamps %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+module IconupsHelper
+end

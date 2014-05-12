@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Session:</strong>
+  <%= @iconup.session %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @iconup.product %>
+</p>
+
+<p>
+  <strong>Icon:</strong>
+  <%= @iconup.icon %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @iconup.description %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @iconup.notes %>
+</p>
+
+<%= link_to 'Edit', edit_iconup_path(@iconup) %> |
+<%= link_to 'Back', iconups_path %>

@@ -1,0 +1,29 @@
+<h1>Listing icons</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Image</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @icons.each do |icon| %>
+      <tr>
+        <td><%= icon.name %></td>
+        <td><%= icon.image %></td>
+        <td><%= link_to 'Show', icon %></td>
+        <td><%= link_to 'Edit', edit_icon_path(icon) %></td>
+        <td><%= link_to 'Destroy', icon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Icon', new_icon_path %>

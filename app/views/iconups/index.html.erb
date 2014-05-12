@@ -1,0 +1,35 @@
+<h1>Listing iconups</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Session</th>
+      <th>Product</th>
+      <th>Icon</th>
+      <th>Description</th>
+      <th>Notes</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @iconups.each do |iconup| %>
+      <tr>
+        <td><%= iconup.session %></td>
+        <td><%= iconup.product %></td>
+        <td><%= iconup.icon %></td>
+        <td><%= iconup.description %></td>
+        <td><%= iconup.notes %></td>
+        <td><%= link_to 'Show', iconup %></td>
+        <td><%= link_to 'Edit', edit_iconup_path(iconup) %></td>
+        <td><%= link_to 'Destroy', iconup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Iconup', new_iconup_path %>
