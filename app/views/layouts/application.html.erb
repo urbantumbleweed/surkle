@@ -10,50 +10,47 @@
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "http://code.createjs.com/createjs-2013.12.12.min.js" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-    <div id="wrap">
+  <!-- Header and Nav -->
+<div id="container">
+  <div class="large-12 columns left">
       <% if notice %>
         <p class="notice"><%= notice %></p>
       <% end %>
       <% if alert %>
         <p class="alert"><%= alert %></p>
       <% end %>
-
-      <div id="container">
-    
-
-  <!-- Header and Nav -->
-
+  </div>
   <div class="row">
     <div class="large-3 columns">
-      <h1><img src="http://placehold.it/400x100&text=Logo"></h1>
+      <h1><a href='/'><img src="http://placehold.it/400x100&text=Logo"></a></h1>
     </div>  
-    <div class="large-12 columns right" id="login">
-            <% if user_signed_in? %>
-              Logged in as <strong><%= current_user.email %></strong>.
-              <%= link_to 'Edit profile', edit_user_registration_path %> |
-              <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-              <%= link_to "New Surkle", new_surkle_path, :class => "button" %>
-                
-
-              
-            <% else %>
-              <%= link_to "Sign up", new_user_registration_path %> |
-              <%= link_to "Login", new_user_session_path %>
-            <% end %>
+    <div class="large-3 columns right" id="login">
+      <% if user_signed_in? %>
+        Logged in as <strong><%= current_user.email %></strong>.
+        <%= link_to 'Edit profile', edit_user_registration_path %> |
+        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        <hr>
+        <%= link_to "Create Surkle", new_surkle_path, :class => "tiny button" %>
+      <% else %>
+        <%= link_to "Sign up", new_user_registration_path %> |
+        <%= link_to "Login", new_user_session_path %>
+      <% end %>
     </div> 
     <div class="large-9 columns">
       <ul class="button-group right">
-        <li><a href="#" class="button">Link 1</a></li>
-        <li><a href="#" class="button">Link 2</a></li>
-        <li><a href="#" class="button">Link 3</a></li>
+        <li><a href="#" class="small button">About</a></li>
+        <li><a href="#" class="small button">Link 2</a></li>
+        <li><a href="#" class="small button">Link 3</a></li>
         
       </ul>
     </div>
   </div>
+</div>
 
 
          

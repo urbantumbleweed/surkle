@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140512192021) do
+ActiveRecord::Schema.define(version: 20140513215945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20140512192021) do
   end
 
   create_table "iconups", force: true do |t|
-    t.integer  "session_id"
+    t.integer  "surkle_id"
     t.integer  "product_id"
     t.integer  "icon_id"
     t.string   "description"
@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(version: 20140512192021) do
     t.text     "floorplan"
     t.text     "description"
     t.string   "location"
-    t.string   "timestamps"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

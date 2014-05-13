@@ -28,7 +28,7 @@ class IconupsController < ApplicationController
 
     respond_to do |format|
       if @iconup.save
-        format.html { redirect_to @iconup, notice: 'Iconup was successfully created.' }
+        format.html { redirect_to surkle_path(@iconup.surkle_id), notice: 'Iconup was successfully created.' }
         format.json { render action: 'show', status: :created, location: @iconup }
       else
         format.html { render action: 'new' }
@@ -69,6 +69,6 @@ class IconupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def iconup_params
-      params.require(:iconup).permit(:session, :product, :icon, :description, :notes)
+      params.require(:iconup).permit(:surkle_id, :product_id, :icon_id, :description, :notes)
     end
 end

@@ -6,7 +6,6 @@
       <th>Floorplan</th>
       <th>Description</th>
       <th>Location</th>
-      <th>Timestamps</th>
       <th></th>
       <th></th>
       <th></th>
@@ -19,7 +18,6 @@
         <td><%= image_tag( surkle.floorplan, width: "100px") %></td>
         <td><%= surkle.description %></td>
         <td><%= surkle.location %></td>
-        <td><%= surkle.timestamps %></td>
         <td><%= link_to 'Show', surkle %></td>
         <td><%= link_to 'Edit', edit_surkle_path(surkle) %></td>
         <td><%= link_to 'Destroy', surkle, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -4,7 +4,6 @@ class CreateSurkles < ActiveRecord::Migration
       t.text :floorplan
       t.text :description
       t.string :location
-      t.string :timestamps
 
       t.timestamps
     end

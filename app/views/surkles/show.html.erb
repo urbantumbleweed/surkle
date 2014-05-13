@@ -13,10 +13,50 @@
   <%= @surkle.location %>
 </p>
 
-<p>
-  <strong>Timestamps:</strong>
-  <%= @surkle.timestamps %>
-</p>
+<div>
+	<% @surkle.iconups.each do |iconup| %>
+	<li><%= iconup.description %></li>
+	<% end %>
+</div>
+
+<div>
+	<%= form_for(@iconup) do |f| %>
+	  <% if @iconup.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@iconup.errors.count, "error") %> prohibited this iconup from being saved:</h2>
+
+	      <ul>
+	      <% @iconup.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+
+	  <div class="field">
+	    <input type="hidden" name="iconup[surkle_id]" value="<%= @surkle.id %>">
+	  </div>
+	  <div class="field">
+	    <%= f.label :product_id %><br>
+	    <%= f.text_field :product_id %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :icon_id %><br>
+	    <%= f.text_field :icon_id %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :description %><br>
+	    <%= f.text_field :description %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :notes %><br>
+	    <%= f.text_area :notes %>
+	  </div>
+	  <div class="actions">
+	    <%= f.submit %>
+	  </div>
+	<% end %>
+</div>
 
 <%= link_to 'Edit', edit_surkle_path(@surkle) %> |
 <%= link_to 'Back', surkles_path %>

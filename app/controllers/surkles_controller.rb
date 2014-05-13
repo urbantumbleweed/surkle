@@ -10,6 +10,7 @@ class SurklesController < ApplicationController
   # GET /surkles/1
   # GET /surkles/1.json
   def show
+    @iconup = Iconup.new()
   end
 
   # GET /surkles/new
