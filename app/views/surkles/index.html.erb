@@ -16,7 +16,7 @@
   <tbody>
     <% @surkles.each do |surkle| %>
       <tr>
-        <td><%= surkle.floorplan %></td>
+        <td><%= image_tag( surkle.floorplan, width: "100px") %></td>
         <td><%= surkle.description %></td>
         <td><%= surkle.location %></td>
         <td><%= surkle.timestamps %></td>

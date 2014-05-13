@@ -15,7 +15,7 @@
     <% @icons.each do |icon| %>
       <tr>
         <td><%= icon.name %></td>
-        <td><%= icon.image %></td>
+        <td><%= image_tag icon.image, size: "50x50" %></td>
         <td><%= link_to 'Show', icon %></td>
         <td><%= link_to 'Edit', edit_icon_path(icon) %></td>
         <td><%= link_to 'Destroy', icon, method: :delete, data: { confirm: 'Are you sure?' } %></td>

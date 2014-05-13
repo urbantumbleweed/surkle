@@ -1,22 +1,13 @@
 SurkleApp::Application.routes.draw do
-
+  root to: "application#index"
+  devise_for :users
   resources :iconups
-
-  get "users_controller/index"
-  get "users_controller/show"
-  get "users_controller/new"
-  get "users_controller/create"
-  get "users_controller/edit"
-  get "users_controller/update"
-  get "users_controller/destroy"
+  resources :users
   resources :icons
-
   resources :products
-
   resources :surkles
 
-  devise_for :users
-  root to: "home#index"
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

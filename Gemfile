@@ -40,13 +40,15 @@ gem 'annotate'
 
 group :development, :test do
 	gem 'rspec-rails'
-	gem 'guard'
+	gem 'guard-rails'
 	gem 'rb-fsevent'
 	gem 'factory_girl_rails'
 	gem 'capybara'
 	gem 'better_errors'
 	gem 'simplecov'
 	gem 'binding_of_caller'
+	gem 'shoulda-matchers'
+	gem 'quiet_assets'
 end
 
 # Use ActiveModel has_secure_password

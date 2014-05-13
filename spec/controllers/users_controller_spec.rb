@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe UsersControllerController do
+describe UsersController do
 
   describe "GET 'index'" do
     it "returns http success" do

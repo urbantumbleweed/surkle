@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @icon.name %>
@@ -7,7 +5,7 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @icon.image %>
+  <%= image_tag @icon.image %>
 </p>
 
 <%= link_to 'Edit', edit_icon_path(@icon) %> |
