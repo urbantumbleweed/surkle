@@ -13,11 +13,30 @@
   <%= @surkle.location %>
 </p>
 
+<% set_of_pairs = [] %>
+
+<% Product.all.each do |product| %>
+	<% pair = ["#{product.name} - #{product.description}", product.id] %>
+	<% set_of_pairs << pair %>
+<% end %>
+
 <div>
 	<% @surkle.iconups.each do |iconup| %>
-	<li><%= iconup.description %></li>
+	<p><%= iconup.description %></p>
+	<ul>
+		<% iconup.products.each do |product| %>
+		<li><%= product.name %> <%= product.description %></li>
+		<% end %>
+	</ul>
+		<%= form_tag('/iconups-products', method: 'post') do %>
+			<%= hidden_field_tag :iconup_id, iconup.id %>
+			<%= select_tag(:product_id, options_for_select(set_of_pairs)) %>
+			<%= submit_tag "Add Product", class: "tiny button" %>			
+		<% end %>
 	<% end %>
 </div>
+
+
 
 <div>
 	<%= form_for(@iconup) do |f| %>
@@ -35,10 +54,6 @@
 
 	  <div class="field">
 	    <input type="hidden" name="iconup[surkle_id]" value="<%= @surkle.id %>">
-	  </div>
-	  <div class="field">
-	    <%= f.label :product_id %><br>
-	    <%= f.text_field :product_id %>
 	  </div>
 	  <div class="field">
 	    <%= f.label :icon_id %><br>

@@ -49,6 +49,7 @@ group :development, :test do
 	gem 'binding_of_caller'
 	gem 'shoulda-matchers'
 	gem 'quiet_assets'
+	gem 'pry-rails'
 end
 
 # Use ActiveModel has_secure_password
@@ -62,3 +63,6 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+#Paperclip for uploading files
+gem "paperclip", "~> 4.1"

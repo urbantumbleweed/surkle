@@ -2,6 +2,7 @@ SurkleApp::Application.routes.draw do
   root to: "application#index"
   devise_for :users
   resources :iconups
+  post '/iconups-products' => 'iconups#add_product_to_iconup'
   resources :users
   resources :icons
   resources :products

@@ -61,6 +61,14 @@ class IconupsController < ApplicationController
     end
   end
 
+  def add_product_to_iconup
+    @iconup = Iconup.find(params[:iconup_id])
+    @product = Product.find(params[:product_id])
+    @iconup.products << @product
+    binding.pry
+    redirect_to surkle_path(@iconup.surkle_id)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_iconup
