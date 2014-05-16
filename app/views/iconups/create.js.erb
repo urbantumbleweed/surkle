@@ -1,0 +1,29 @@
+$('#new-iconup').hide();
+
+var $iconupMarker = $("<%=  j(render(@iconup)) %>");
+var $iconupDetails = $("<%= j(render partial: 'iconups/show', locals: {iconup: @iconup}) %>");
+
+$('#floorplan').append($iconupMarker);
+$('#floorplan').append($iconupDetails);
+
+
+$iconupMarker.click(function(){
+	$iconupDetails.show();
+});
+
+$iconupDetails.click(function() {
+	$(this).hide();
+})
+
+// $marker.addClass('clear');
+// alert("I'm saved and rendered");
+
+// $('floorplan')
+
+$(body).on("click", "marker", function(){
+	$(this).attr('id');
+})
+
+$(body).on("click", "iconup-details", function(){
+	$(this).toggle();
+})

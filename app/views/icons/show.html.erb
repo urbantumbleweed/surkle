@@ -1,12 +1,16 @@
-<p>
-  <strong>Name:</strong>
-  <%= @icon.name %>
-</p>
+<div class="row">
+	<div class="large-6 columns">
+		<p>
+		  <strong>Name:</strong>
+		  <%= @icon.name %>
+		</p>
 
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @icon.image %>
-</p>
+		<p>
+		  <strong>Image:</strong>
+		  <%= image_tag @icon.image.url(:original) %>
+		</p>
 
-<%= link_to 'Edit', edit_icon_path(@icon) %> |
-<%= link_to 'Back', icons_path %>
+		<%= link_to 'Edit', edit_icon_path(@icon) %> |
+		<%= link_to 'Back', icons_path %>
+	</div>
+</div>

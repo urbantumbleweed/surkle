@@ -1,0 +1,11 @@
+ <% surkles.each do |surkle| %>
+      <%= link_to surkle do %>
+      <tr>
+        <td><%= image_tag( surkle.floorplan.url(:thumb)) %></td>
+        <td><%= surkle.description %></td>
+        <td><%= surkle.location %></td>
+        <td><%= link_to 'Edit', edit_surkle_path(surkle) %></td>
+        <td><%= link_to 'Destroy', surkle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    <% end %>

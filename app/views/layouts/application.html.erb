@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Surkle" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -16,8 +16,8 @@
 
   <body>
   <!-- Header and Nav -->
-<div id="container">
-  <div class="large-12 columns left">
+<div class="row">
+  <div class="large-6 columns left">
       <% if notice %>
         <p class="notice"><%= notice %></p>
       <% end %>
@@ -25,32 +25,38 @@
         <p class="alert"><%= alert %></p>
       <% end %>
   </div>
+ 
+  </div>
   <div class="row">
     <div class="large-3 columns">
-      <h1><a href='/'><img src="http://placehold.it/400x100&text=Logo"></a></h1>
+      <h1><a href='/'><%= image_tag("surkle_logo_300_125.gif") %></a></h1>
     </div>  
-    <div class="large-3 columns right" id="login">
+     <div class="large-6 columns right" id="login">
       <% if user_signed_in? %>
         Logged in as <strong><%= current_user.email %></strong>.
-        <%= link_to 'Edit profile', edit_user_registration_path %> |
-        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-        <hr>
-        <%= link_to "Create Surkle", new_surkle_path, :class => "tiny button" %>
+        <span class="right"><%= link_to 'Edit profile', edit_user_registration_path %> |
+                <%= link_to "Logout", destroy_user_session_path, method: :delete %></span>
       <% else %>
-        <%= link_to "Sign up", new_user_registration_path %> |
-        <%= link_to "Login", new_user_session_path %>
+        <span class="right"> <%= link_to "Login", new_user_session_path %> |
+           <%= link_to "Sign up", new_user_registration_path %></span>
+           <i class="fi-address-book size-24"> </i>
       <% end %>
     </div> 
+    
     <div class="large-9 columns">
       <ul class="button-group right">
-        <li><a href="#" class="small button">About</a></li>
-        <li><a href="#" class="small button">Link 2</a></li>
-        <li><a href="#" class="small button">Link 3</a></li>
+        <li><a href="#" class="tiny button radius">About</a></li>
+        <li> </li>
+        <% if user_signed_in? %>
+        <li><%= link_to "Dashboard", current_user, class: "small button" %></li>
+        <li><%= link_to "+ Project", new_project_path, class: "small button" %></li>
+        <li><%= link_to "+ Surkle", new_surkle_path, class: "small button" %></li>
+        <% end %>
         
       </ul>
     </div>
   </div>
-</div>
+
 
 
          

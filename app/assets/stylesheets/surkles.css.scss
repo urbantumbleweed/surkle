@@ -6,3 +6,33 @@
 	width: 90%;
 	height: auto;
 }
+
+.marker {
+    width: 25px;
+    height: 25px;
+    background-color: black;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+#floorplan {
+  position: relative;
+  z-index: 0;
+}
+
+.iconup-details {
+	position: absolute;
+	background-color: rgba(255,255,255,.9);
+}
+
+#new-iconup {
+	position: absolute;
+	background-color: rgba(255,255,255,.9);
+	z-index: 1;
+}
+
+
+.show-up{
+	visibility: true;
+}

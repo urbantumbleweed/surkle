@@ -1,2 +1,19 @@
 <h1>UsersController#show</h1>
-<p>Find me in app/views/users_controller/show.html.erb</p>
+
+<div class="row">
+	<div class="large-4 columns right">
+		<table>
+	  <thead>
+	    <tr>
+	      <th>Floorplan</th>
+	      <th>Description</th>
+	      <th>Location</th>
+	      <th></th>
+	      <th></th>
+	    </tr>
+	  </thead>
+		<tbody>
+		<%= render partial: "surkles/surkle", locals: { surkles: @user.surkles }%>
+		</tbody>
+	</div>
+</div>

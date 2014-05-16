@@ -1,0 +1,94 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= "Boop" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "http://code.createjs.com/createjs-2013.12.12.min.js" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+  <!-- Header and Nav -->
+<div class="row">
+  <div class="large-6 columns left">
+      <% if notice %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
+  </div>
+ 
+  </div>
+  <div class="row">
+    <div class="large-3 columns">
+      <h1><a href='/'><%= image_tag("surkle_logo_300_125.gif") %></a></h1>
+    </div>  
+     <div class="large-6 columns right" id="login">
+      <% if user_signed_in? %>
+        Logged in as <strong><%= current_user.email %></strong>.
+        <span class="right"><%= link_to 'Edit profile', edit_user_registration_path %> |
+                <%= link_to "Logout", destroy_user_session_path, method: :delete %></span>
+      <% else %>
+        <span class="right"><%= link_to "Sign up", new_user_registration_path %> |
+                <%= link_to "Login", new_user_session_path %></span>
+      <% end %>
+    </div> 
+    
+    <div class="large-9 columns">
+      <ul class="button-group right">
+        <li><a href="#" class="tiny button radius">About</a></li>
+        <li> </li>
+        <% if user_signed_in? %>
+        <li><%= link_to "+ Project", new_project_path, class: "small button" %></li>
+        <li><%= link_to "+ Surkle", new_surkle_path, class: "small button" %></li>
+        <% end %>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+         
+
+  <!-- End Header and Nav -->
+
+
+  <%= yield %>
+
+
+
+
+
+  <footer class="row">
+    <div class="large-12 columns">
+      <hr />
+      <div class="row">
+        <div class="large-6 columns">
+          <p>&copy; Copyright no one at all. Go to town.</p>
+        </div>
+        <div class="large-6 columns">
+          <ul class="inline-list right">
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link 2</a></li>
+            <li><a href="#">Link 3</a></li>
+            <li><a href="#">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+      <%= javascript_include_tag "application" %>
+</body>
+</html>
+
+     
+      

@@ -11,6 +11,7 @@ class SurklesController < ApplicationController
   # GET /surkles/1.json
   def show
     @iconup = Iconup.new()
+    @surkle.iconups
   end
 
   # GET /surkles/new
@@ -25,7 +26,9 @@ class SurklesController < ApplicationController
   # POST /surkles
   # POST /surkles.json
   def create
-    @surkle = Surkle.new(surkle_params)
+    @surkle = Surkle.create(surkle_params)
+    SurklesUser.add_user_to_surkle(current_user.id, @surkle.id)
+    
 
     respond_to do |format|
       if @surkle.save

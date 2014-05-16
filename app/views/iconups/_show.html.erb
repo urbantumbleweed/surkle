@@ -1,0 +1,23 @@
+<% set_of_pairs = [] %>
+
+<% Product.all.each do |product| %>
+	<% pair = ["#{product.name} - #{product.description}", product.id] %>
+	<% set_of_pairs << pair %>
+<% end %>
+
+<div id="<%= dom_id(iconup)%>-details" style="top:<%= iconup.y_coordinate %>px;left:<%= iconup.x_coordinate %>px;display:none" class="iconup-details">
+	<div class="small-5 columns left">
+		<h3><%= iconup.description %></h3>
+		<strong>Products</strong>
+		<ol>
+			<% iconup.products.each do |product| %>
+			<li><%= product.name %> <%= product.description %> <%= link_to "x", product, method: :delete %></li>
+			<% end %>
+		</ol>
+			<%= form_tag('/iconups-products', method: 'post') do %>
+				<%= hidden_field_tag :iconup_id, iconup.id %>
+				<%= select_tag(:product_id, options_for_select(set_of_pairs)) %>
+				<%= submit_tag "+ Product", class: "tiny button" %>		
+			<% end %>
+	</div>
+</div>

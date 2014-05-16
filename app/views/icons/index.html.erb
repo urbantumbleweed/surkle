@@ -1,29 +1,33 @@
-<h1>Listing icons</h1>
+<div class="row">
+  <div class="large-4 columns">
+    <h1>Listing icons</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Image</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Image</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @icons.each do |icon| %>
-      <tr>
-        <td><%= icon.name %></td>
-        <td><%= image_tag icon.image, size: "50x50" %></td>
-        <td><%= link_to 'Show', icon %></td>
-        <td><%= link_to 'Edit', edit_icon_path(icon) %></td>
-        <td><%= link_to 'Destroy', icon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @icons.each do |icon| %>
+          <tr>
+            <td><%= icon.name %></td>
+            <td><%= image_tag icon.image, size: "50x50" %></td>
+            <td><%= link_to 'Show', icon %></td>
+            <td><%= link_to 'Edit', edit_icon_path(icon) %></td>
+            <td><%= link_to 'Destroy', icon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<br>
+    <br>
 
-<%= link_to 'New Icon', new_icon_path %>
+    <%= link_to 'New Icon', new_icon_path %>
+  </div>
+</div>

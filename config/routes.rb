@@ -1,4 +1,12 @@
 SurkleApp::Application.routes.draw do
+  get "surkles_users/add_user_to_surkle"
+  get "surkles_users/remove_user_from_surkle"
+  resources :project_products
+
+  resources :companies
+
+  resources :projects
+
   root to: "application#index"
   devise_for :users
   resources :iconups

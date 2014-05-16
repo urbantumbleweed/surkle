@@ -44,12 +44,12 @@ group :development, :test do
 	gem 'rb-fsevent'
 	gem 'factory_girl_rails'
 	gem 'capybara'
-	gem 'better_errors'
 	gem 'simplecov'
 	gem 'binding_of_caller'
 	gem 'shoulda-matchers'
 	gem 'quiet_assets'
 	gem 'pry-rails'
+	
 end
 
 # Use ActiveModel has_secure_password
@@ -65,4 +65,5 @@ end
 # gem 'debugger', group: [:development, :test]
 
 #Paperclip for uploading files
-gem "paperclip", "~> 4.1"
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'rmagick', "~> 2.13.02"

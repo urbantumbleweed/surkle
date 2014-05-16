@@ -12,18 +12,26 @@ p3 = User.create(first_name: "Charlie", last_name: "Davis", email: "charlie@ga.c
 p4 = User.create(first_name: "David", last_name: "Sands", email: "david@ga.com", title: "client", password: "qwerty", password_confirmation: "qwerty")
 p5 = User.create(first_name: "Silvia", last_name: "Young", email: "Silvia@ga.com", title: "service", password: "qwerty", password_confirmation: "qwerty")
 
-floor_plan = "//upload.wikimedia.org/wikipedia/commons/thumb/b/b6/PSM_V79_D623_First_floor_plan_of_the_zoological_lab_at_the_u_of_pennsylvania.png/800px-PSM_V79_D623_First_floor_plan_of_the_zoological_lab_at_the_u_of_pennsylvania.png"
-s1 = Surkle.create(floorplan: floor_plan, description: "Discussing the auditorium", location: "UPenn")
-s2 = Surkle.create(floorplan: floor_plan, description: "This is the second one", location: "UA")
-s3 = Surkle.create(floorplan: floor_plan, description: "Discuss the third", location: "UW")
-s4 = Surkle.create(floorplan: floor_plan, description: "And the fourth", location: "UCal")
-s5 = Surkle.create(floorplan: floor_plan, description: "Five", location: "UConn")
-s6 = Surkle.create(floorplan: floor_plan, description: "Six", location: "UMass")
 
-camera= "http://www.euklis.it/upload/product_images_750/1141d5676fbd51bf1bcdbea9b308d4b1_klislite90hdosd.jpg"
-prod1 = Product.create(name: "minidome", description: "Indoor camera", price: 100, image: camera)
-prod2 = Product.create(name: "minidome", description: "Panoramic camera", price: 200, image: camera)
-prod3 = Product.create(name: "minidome", description: "Outdoor camera", price: 300, image: camera)
-prod4 = Product.create(name: "minidome", description: "Nightvision camera", price: 400, image: camera)
+s1 = Surkle.create(description: "Discussing the auditorium", location: "UPenn")
+s2 = Surkle.create(description: "This is the second one", location: "UA")
+s3 = Surkle.create(description: "Discuss the third", location: "UW")
+s4 = Surkle.create(description: "And the fourth", location: "UCal")
+s5 = Surkle.create(description: "Five", location: "UConn")
+s6 = Surkle.create(description: "Six", location: "UMass")
+
+proj1 = Project.create(name: "Moker", description: "The flaghip location")
+proj1 = Project.create(name: "GA", description: "The new factory")
+proj1 = Project.create(name: "NYU", description: "Student Union Refresh")
+proj1 = Project.create(name: "Tyco", description: "Advanced Operations Center")
+proj1 = Project.create(name: "DARPA", description: "Nanotech lab")
+
+
+prod1 = Product.create(name: "minidome", description: "Indoor camera", price: 100)
+prod2 = Product.create(name: "minidome", description: "Panoramic camera", price: 200)
+prod3 = Product.create(name: "minidome", description: "Outdoor camera", price: 300)
+prod4 = Product.create(name: "minidome", description: "Nightvision camera", price: 400)
+
+
 
 # icon1 = Icon.create(name: "camera", image: )

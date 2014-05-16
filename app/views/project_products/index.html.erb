@@ -1,0 +1,33 @@
+<h1>Listing project_products</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Subtotal</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @project_products.each do |project_product| %>
+      <tr>
+        <td><%= project_product.project %></td>
+        <td><%= project_product.product %></td>
+        <td><%= project_product.quantity %></td>
+        <td><%= project_product.subtotal %></td>
+        <td><%= link_to 'Show', project_product %></td>
+        <td><%= link_to 'Edit', edit_project_product_path(project_product) %></td>
+        <td><%= link_to 'Destroy', project_product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Project product', new_project_product_path %>

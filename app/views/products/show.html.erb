@@ -1,22 +1,29 @@
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
+<div class="row">
+	<div class="large-4 columns"></div>
+	<div class="large-4 columns left">
+				<p>
+		  <strong>Name:</strong>
+		  <%= @product.name %>
+		</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
+		<p>
+		  <strong>Description:</strong>
+		  <%= @product.description %>
+		</p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
+		<p>
+		  <strong>Price:</strong>
+		  $<%= @product.price %>
+		</p>
 
-<p>
-  <strong>Image:</strong>
-  <%= @product.image %>
-</p>
+		
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+		<%= link_to 'Edit', edit_product_path(@product) %> |
+		<%= link_to 'Back', products_path %>
+
+	</div>
+	<div class="large-6 columns right">
+		  <p><strong>Image:</strong></p>
+		  <%= image_tag @product.photo.url(:medium) %>
+	</div>
+</div>

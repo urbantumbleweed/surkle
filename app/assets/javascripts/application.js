@@ -16,4 +16,43 @@
 //= require turbolinks
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+$('body').on("click", ".marker", function(){
+	var detailID = $(this).attr('id') + "-details";
+	var $detailView = $("#" + detailID);
+	$detailView.show();
+
+});
+
+$(function(){ $(document).foundation();
+	var $form = $('#new-iconup').hide();
+  $('img').click(function(event) {
+  	var x = event.offsetX;
+  	var y = event.offsetY;
+    var $markup = $('<div class="marker">').appendTo($('#floorplan'));
+    $markup.css('top', y + 'px').css('left', x +'px');
+    $form.appendTo($('#floorplan')).css('top', y + 'px').css('left', x +'px').show();
+    $('#iconup_x_coordinate').val(x);
+    $('#iconup_y_coordinate').val(y);
+
+
+    // $form.addEventListener()    
+    // showIconupMenu(event);
+    // sendAjaxPost();
+
+  });
+});
+
+// function showIconupMenu(data){
+// 	// # put an id on that form
+// 	// # when the user clicks:
+// 	// 	# grab the form
+// 	// 	# append its div on the image the same way you did the other div
+
+// }
+
+// function sendAjaxPost(){
+
+// 	success: function(){
+
+// 	}
+// }

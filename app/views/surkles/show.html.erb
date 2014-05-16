@@ -1,17 +1,25 @@
-<p>
-  <strong>Floorplan:</strong>
-  <%= image_tag(@surkle.floorplan) %>
-</p>
+<div class="row">
+	<div class="large-12 columns left">
+	  <div class="row">
+	  	<div class="large-6 columns left">
+	  		<strong>Description:</strong>
+			  <%= @surkle.description %>
+	  	</div>
+	  	<div class="large-6 columns right">
+	  		<strong>Location:</strong>
+			  <%= @surkle.location %>
+	  	</div>
+	  </div>
+	  <div id="floorplan">
+	  	<%= image_tag(@surkle.floorplan.url(:canvas)) %>
+			<%= render @surkle.iconups %>
+			<% @surkle.iconups.each do |iconup| %>
+				<%= render partial: 'iconups/show', locals: {iconup: iconup} %>
+			<% end %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @surkle.description %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @surkle.location %>
-</p>
+	  </div>
+	</div>
+</div>
 
 <% set_of_pairs = [] %>
 
@@ -20,57 +28,60 @@
 	<% set_of_pairs << pair %>
 <% end %>
 
-<div>
-	<% @surkle.iconups.each do |iconup| %>
-	<p><%= iconup.description %></p>
-	<ul>
-		<% iconup.products.each do |product| %>
-		<li><%= product.name %> <%= product.description %></li>
+
+<div class="row">
+
+
+
+	<div class="large-3 columns right border glow" id="new-iconup">
+		<%= form_for(@iconup, remote: true) do |f| %>
+		  <% if @iconup.errors.any? %>
+		    <div id="error_explanation">
+		      <h2><%= pluralize(@iconup.errors.count, "error") %> prohibited this iconup from being saved:</h2>
+
+		      <ul>
+		      <% @iconup.errors.full_messages.each do |msg| %>
+		        <li><%= msg %></li>
+		      <% end %>
+		      </ul>
+		    </div>
+		  <% end %>
+
+		  <div class="field">
+		    <input type="hidden" name="iconup[surkle_id]" value="<%= @surkle.id %>">
+		  </div>
+				
+			<% icons = [] %>
+		  <% Icon.all.each do |icon| %>
+				<% icons << icon.image.url(:tiny) %>
+		  <% end %>
+
+		  <div class="field">
+		    <%= f.label :icon_id %><br>
+		    <%= f.text_field :icon_id %>
+		  </div>
+		  <div class="field">
+		    <%= f.label :description %><br>
+		    <%= f.text_field :description %>
+		  </div>
+		  <div class="field">
+		    <%= f.label :notes %><br>
+		    <%= f.text_area :notes %>
+		  </div>
+			
+		  <div>
+		  	<%= f.hidden_field(:x_coordinate) %>
+		  </div>
+
+		  <div>
+		  	<%= f.hidden_field(:y_coordinate) %>
+		  </div>
+
+		  <div class="action">
+		    <%= f.submit(class: "small button") %>
+		  </div>
 		<% end %>
-	</ul>
-		<%= form_tag('/iconups-products', method: 'post') do %>
-			<%= hidden_field_tag :iconup_id, iconup.id %>
-			<%= select_tag(:product_id, options_for_select(set_of_pairs)) %>
-			<%= submit_tag "Add Product", class: "tiny button" %>			
-		<% end %>
-	<% end %>
-</div>
-
-
-
-<div>
-	<%= form_for(@iconup) do |f| %>
-	  <% if @iconup.errors.any? %>
-	    <div id="error_explanation">
-	      <h2><%= pluralize(@iconup.errors.count, "error") %> prohibited this iconup from being saved:</h2>
-
-	      <ul>
-	      <% @iconup.errors.full_messages.each do |msg| %>
-	        <li><%= msg %></li>
-	      <% end %>
-	      </ul>
-	    </div>
-	  <% end %>
-
-	  <div class="field">
-	    <input type="hidden" name="iconup[surkle_id]" value="<%= @surkle.id %>">
-	  </div>
-	  <div class="field">
-	    <%= f.label :icon_id %><br>
-	    <%= f.text_field :icon_id %>
-	  </div>
-	  <div class="field">
-	    <%= f.label :description %><br>
-	    <%= f.text_field :description %>
-	  </div>
-	  <div class="field">
-	    <%= f.label :notes %><br>
-	    <%= f.text_area :notes %>
-	  </div>
-	  <div class="actions">
-	    <%= f.submit %>
-	  </div>
-	<% end %>
+	</div>
 </div>
 
 <%= link_to 'Edit', edit_surkle_path(@surkle) %> |
